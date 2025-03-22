@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derrick Njeri - Data Science Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --yellow: rgb(247, 236, 9);
+            --green: rgb(62, 199, 11);
+            --blue: rgb(59, 68, 246);
+            --purple: rgb(161, 73, 250);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        .custom-yellow { color: var(--yellow); }
+        .custom-green { color: var(--green); }
+        .custom-blue { color: var(--blue); }
+        .custom-purple { color: var(--purple); }
+        
+        .bg-custom-yellow { background-color: var(--yellow); }
+        .bg-custom-green { background-color: var(--green); }
+        .bg-custom-blue { background-color: var(--blue); }
+        .bg-custom-purple { background-color: var(--purple); }
+        
+        .border-custom-yellow { border-color: var(--yellow); }
+        .border-custom-green { border-color: var(--green); }
+        .border-custom-blue { border-color: var(--blue); }
+        .border-custom-purple { border-color: var(--purple); }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--yellow), var(--green), var(--blue), var(--purple));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            border-radius: 0.5rem;
+            margin: 0.25rem;
+            font-size: 0.85rem;
+            animation: floatIn 0.5s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        
+        .skill-tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 10px;
+            animation: modalIn 0.3s ease;
+        }
+        
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Continued from previous section -->
+    <!-- Skills Section continued -->
+    <section id="skills-continued">
+        <!-- Hidden Skills continued -->
+        <div class="hidden-skills hidden">
+            <!-- Skill 7 continued -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-2 bg-custom-blue"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Natural Language Processing</h3>
+                    <p class="text-gray-600 mb-4">Experience in text analysis, sentiment analysis, and building language models.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-custom-blue h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span class="text-sm text-gray-500">Proficiency</span>
+                        <span class="text-sm font-medium">80%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 8 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-2 bg-custom-purple"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Cloud Computing</h3>
+                    <p class="text-gray-600 mb-4">Proficient with AWS, Azure, and GCP for deploying data science solutions.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-custom-purple h-2.5 rounded-full" style="width: 78%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span class="text-sm text-gray-500">Proficiency</span>
+                        <span class="text-sm font-medium">78%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 9 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-2 bg-custom-yellow"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Database Management</h3>
+                    <p class="text-gray-600 mb-4">Experience with SQL and NoSQL databases for efficient data storage and retrieval.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-custom-yellow h-2.5 rounded-full" style="width: 86%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span class="text-sm text-gray-500">Proficiency</span>
+                        <span class="text-sm font-medium">86%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 10 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-2 bg-custom-green"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Data Engineering</h3>
+                    <p class="text-gray-600 mb-4">Skilled in building data pipelines and ETL processes for efficient data workflows.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-custom-green h-2.5 rounded-full" style="width: 83%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span class="text-sm text-gray-500">Proficiency</span>
+                        <span class="text-sm font-medium">83%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <button id="skills-more-btn" class="gradient-bg text-white py-3 px-8 rounded-full font-semibold transition-all hover:shadow-lg">
+                Show More <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-custom-blue to-custom-purple">My Projects</span>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-custom-purple rounded"></div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" id="projects-container">
+                <!-- Project 1 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Customer Segmentation</h3>
+                            <span class="bg-custom-yellow bg-opacity-20 text-custom-yellow text-xs px-2 py-1 rounded-full">ML</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Used K-means clustering to segment customers based on purchasing behavior, enabling targeted marketing strategies.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">Scikit-learn</span>
+                            <span class="tag bg-gray-100 text-gray-600">Matplotlib</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="1">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Sales Forecasting</h3>
+                            <span class="bg-custom-green bg-opacity-20 text-custom-green text-xs px-2 py-1 rounded-full">Time Series</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Developed a time series model to predict retail sales with 92% accuracy, helping optimize inventory management.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">R</span>
+                            <span class="tag bg-gray-100 text-gray-600">Prophet</span>
+                            <span class="tag bg-gray-100 text-gray-600">ggplot2</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="2">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Sentiment Analysis</h3>
+                            <span class="bg-custom-blue bg-opacity-20 text-custom-blue text-xs px-2 py-1 rounded-full">NLP</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Built a model to analyze customer reviews sentiment, providing insights that improved product satisfaction by 23%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">NLTK</span>
+                            <span class="tag bg-gray-100 text-gray-600">BERT</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="3">View Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden Projects (will be revealed by "Show More" button) -->
+            <div class="hidden-projects hidden">
+                <!-- Projects 4-12 -->
+                <!-- Project 4 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 4" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Fraud Detection</h3>
+                            <span class="bg-custom-purple bg-opacity-20 text-custom-purple text-xs px-2 py-1 rounded-full">Classification</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Implemented an XGBoost model that improved fraud detection accuracy by 37%, saving the client an estimated $1.2M annually.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">XGBoost</span>
+                            <span class="tag bg-gray-100 text-gray-600">Feature Engineering</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="4">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 5" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Market Basket Analysis</h3>
+                            <span class="bg-custom-yellow bg-opacity-20 text-custom-yellow text-xs px-2 py-1 rounded-full">Association Rules</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Used Apriori algorithm to discover product associations, leading to a 15% increase in cross-selling success rate.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">R</span>
+                            <span class="tag bg-gray-100 text-gray-600">arules</span>
+                            <span class="tag bg-gray-100 text-gray-600">Data Mining</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="5">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 6" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Recommendation Engine</h3>
+                            <span class="bg-custom-green bg-opacity-20 text-custom-green text-xs px-2 py-1 rounded-full">Collaborative Filtering</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Built a collaborative filtering system that increased customer engagement by 28% and average order value by 12%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">Surprise</span>
+                            <span class="tag bg-gray-100 text-gray-600">Pandas</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="6">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 7" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Customer Churn Prediction</h3>
+                            <span class="bg-custom-blue bg-opacity-20 text-custom-blue text-xs px-2 py-1 rounded-full">Classification</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Developed a model to predict customer churn with 89% accuracy, enabling proactive retention strategies.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">Random Forest</span>
+                            <span class="tag bg-gray-100 text-gray-600">SHAP</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="7">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 8" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Image Classification</h3>
+                            <span class="bg-custom-purple bg-opacity-20 text-custom-purple text-xs px-2 py-1 rounded-full">Deep Learning</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Built a CNN model for product defect detection, achieving 96% accuracy and reducing quality control costs by 42%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">TensorFlow</span>
+                            <span class="tag bg-gray-100 text-gray-600">Keras</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="8">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 9" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Supply Chain Optimization</h3>
+                            <span class="bg-custom-yellow bg-opacity-20 text-custom-yellow text-xs px-2 py-1 rounded-full">Optimization</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Applied linear programming to optimize logistics, reducing delivery times by 18% and costs by 12%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">PuLP</span>
+                            <span class="tag bg-gray-100 text-gray-600">OR-Tools</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="9">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 10 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 10" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Credit Risk Assessment</h3>
+                            <span class="bg-custom-green bg-opacity-20 text-custom-green text-xs px-2 py-1 rounded-full">Classification</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Developed a model to assess loan default risk, reducing default rates by 31% while maintaining approval rates.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">LightGBM</span>
+                            <span class="tag bg-gray-100 text-gray-600">Feature Selection</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="10">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 11 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 11" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Predictive Maintenance</h3>
+                            <span class="bg-custom-blue bg-opacity-20 text-custom-blue text-xs px-2 py-1 rounded-full">IoT</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Created a system to predict equipment failures, reducing downtime by 47% and maintenance costs by 28%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">Python</span>
+                            <span class="tag bg-gray-100 text-gray-600">Sensor Data</span>
+                            <span class="tag bg-gray-100 text-gray-600">Time Series</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="11">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 12 -->
+                <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Project 12" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Healthcare Analytics</h3>
+                            <span class="bg-custom-purple bg-opacity-20 text-custom-purple text-xs px-2 py-1 rounded-full">Clustering</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Analyzed patient data to identify high-risk groups, improving preventive care targeting by 34%.</p>
+                        <div class="flex space-x-2">
+                            <span class="tag bg-gray-100 text-gray-600">R</span>
+                            <span class="tag bg-gray-100 text-gray-600">Statistical Analysis</span>
+                            <span class="tag bg-gray-100 text-gray-600">Healthcare</span>
+                        </div>
+                        <button class="project-details-btn mt-4 border border-custom-purple text-custom-purple py-2 px-4 rounded-full hover:bg-custom-purple hover:text-white transition-colors" data-project="12">View Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <button id="projects-more-btn" class="gradient-bg text-white py-3 px-8 rounded-full font-semibold transition-all hover:shadow-lg">
+                    Show More <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-custom-purple to-custom-yellow">Client Testimonials</span>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-custom-green rounded"></div>
+            </h2>
+            
+            <div class="testimonial-container relative">
+                <!-- Testimonial Slides -->
+                <div class="testimonial-slide active">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <img src="/api/placeholder/60/60" alt="Client" class="w-16 h-16 rounded-full object-cover border-4 border-custom-yellow">
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold">Sarah Johnson</h3>
+                                <p class="text-gray-600">Marketing Director, TechCorp</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Derrick's customer segmentation analysis transformed our marketing strategy. His insights were actionable and led to a 27% increase in our campaign ROI. He has a unique ability to explain complex findings in a way everyone understands."
+                        </p>
+                        <div class="mt-4 flex text-custom-yellow">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <img src="/api/placeholder/60/60" alt="Client" class="w-16 h-16 rounded-full object-cover border-4 border-custom-green">
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold">Michael Chen</h3>
+                                <p class="text-gray-600">CTO, StartupX</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "The sales forecasting model Derrick developed was incredibly accurate. It helped us optimize our inventory and reduce waste by 35%. His attention to detail and communication were outstanding."
+                        </p>
+                        <div class="mt-4 flex text-custom-green">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <img src="/api/placeholder/60/60" alt="Client" class="w-16 h-16 rounded-full object-cover border-4 border-custom-blue">
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold">Emma Wilson</h3>
+                                <p class="text-gray-600">Product Manager, DataSolutions</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Derrick's NLP implementation revolutionized our customer feedback analysis. The real-time sentiment tracking has become an invaluable tool for our product team. Highly recommended for any complex data challenges!"
+                        </p>
+                        <div class="mt-4 flex text-custom-blue">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Controls -->
+            <div class="testimonial-controls flex justify-center mt-8 space-x-4">
+                <button class="testimonial-prev bg-custom-purple text-white p-2 rounded-full hover:bg-opacity-90 transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="dots flex space-x-2">
+                    <button class="dot w-3 h-3 rounded-full bg-gray-300" data-slide="0"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                </div>
+                <button class="testimonial-next bg-custom-purple text-white p-2 rounded-full hover:bg-opacity-90 transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-custom-blue">Get In Touch</span>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-custom-blue rounded"></div>
+            </h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-custom-purple focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-custom-purple focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-custom-purple focus:border-transparent" required></textarea>
+                    </div>
+                    <button type="submit" class="gradient-bg text-white py-3 px-8 rounded-full font-semibold w-full hover:shadow-lg transition-all">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-lg">&copy; 2023 Derrick Njeri. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-custom-yellow transition-colors">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-custom-yellow transition-colors">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-custom-yellow transition-colors">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-custom-yellow transition-colors">
+                        <i class="fab fa-medium-m fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Testimonial Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('bg-custom-purple'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('bg-custom-purple');
+        }
+
+        document.querySelector('.testimonial-prev').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        document.querySelector('.testimonial-next').addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! I will respond shortly.');
+            e.target.reset();
+        });
+
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

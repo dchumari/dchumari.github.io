@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Existing head content remains unchanged -->
+  <style>
+    /* All previous CSS styles from original file */
+    :root {
+      --primary: rgb(33, 146, 255);
+      --secondary: rgb(56, 229, 77);
+      --accent: rgb(156, 255, 46);
+      --highlight: rgb(253, 255, 0);
+      --dark: #333;
+      --light: #f4f4f4;
+      --white: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      padding: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%);
+      background-size: 20px 20px;
+      opacity: 0.2;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: var(--highlight);
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--highlight);
+    }
+    
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+    }
+    
+    .hero-content {
+      flex: 1;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--highlight);
+      color: var(--dark);
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      margin-left: 1rem;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--white);
+      color: var(--primary);
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+    }
+    
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-box {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 1rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      flex: 1;
+      min-width: 200px;
+      transition: transform 0.3s;
+    }
+    
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .service-card:hover::before {
+      width: 100%;
+      opacity: 0.1;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .service-card ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    
+    .service-card ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .service-card ul li::before {
+      content: "•";
+      color: var(--secondary);
+      position: absolute;
+      left: 0;
+    }
+
+    .skills {
+      background-color: var(--light);
+      padding: 5rem 0;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .skill-tag {
+      background-color: var(--white);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+    
+    .skill-tag:hover {
+      background-color: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    
+    .skills-charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .skill-chart {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .skill-chart h3 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .skill-bar {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skill-bar-outer {
+      height: 10px;
+      background-color: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .skill-bar-inner {
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .skill-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(33, 146, 255, 0.15);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .skill-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .skill-progress {
+      margin: 1rem 0;
+    }
+
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .project-tag {
+      background-color: rgba(33, 146, 255, 0.1);
+      color: var(--primary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+    
+    .testimonials {
+      background-color: var(--white);
+    }
+    
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--light);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 4rem;
+      color: rgba(33, 146, 255, 0.1);
+      font-family: Georgia, serif;
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-info h4 {
+      margin-bottom: 0.2rem;
+    }
+    
+    .testimonial-info p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .pricing {
+      background-color: var(--light);
+    }
+    
+    .pricing-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .pricing-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pricing-card.featured {
+      transform: scale(1.05);
+      border: 2px solid var(--primary);
+    }
+    
+    .pricing-card.featured::before {
+      content: "Popular";
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      border-bottom-left-radius: 10px;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-5px);
+    }
+    
+    .pricing-header {
+      margin-bottom: 2rem;
+    }
+    
+    .pricing-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    
+    .pricing-period {
+      color: #666;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    
+    .pricing-features li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .pricing-features li::before {
+      content: "✓";
+      color: var(--secondary);
+      position: absolute;
+      left: 0;
+    }
+    
+    .contact {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      position: relative;
+    }
+    
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%);
+      background-size: 20px 20px;
+      opacity: 0.1;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-details {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-details li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      background-color: var(--white);
+      color: var(--primary);
+    }
+    
+    .contact-form {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h3 {
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      list-style: none;
+      margin: 1rem 0;
+    }
+    
+    .footer-links li {
+      margin: 0 1rem;
+    }
+    
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .copyright {
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animated {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .skills {
+      background-color: var(--light);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .skill-list {
+      list-style: none;
+      text-align: left;
+      margin-top: 1.5rem;
+    }
+
+    .skill-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      color: #666;
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-content {
+        margin-bottom: 2rem;
+      }
+      
+      .pricing-card.featured {
+        transform: none;
+      }
+      
+      .pricing-card.featured:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Added new styles */
+    .hidden {
+      display: none !important;
+    }
+
+    .show-more-btn {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.8rem 2rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .show-more-btn:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .progress-bar {
+      height: 8px;
+      background-color: rgba(33, 146, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          DataSciPro<span class="logo-dot"></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#pricing">Hire Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="hero">
+        <div class="hero-content animated">
+          <h1>Turning Data into Actionable Insights</h1>
+          <h2>Data Science Freelancer Specializing in Machine Learning, Analytics, and Visualization</h2>
+          <a href="#contact" class="btn">Get in Touch</a>
+          <a href="#projects" class="btn btn-outline">View My Work</a>
+        </div>
+        <div class="hero-image animated">
+          <img src="/api/placeholder/500/400" alt="Data Visualization">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <p class="section-subtitle">Comprehensive data science solutions for your business</p>
+      
+      <div class="services-container">
+        <!-- Original 6 Service Cards -->
+        <div class="service-card">
+          <h3>Machine Learning Solutions</h3>
+          <p>Custom machine learning models to solve complex business problems and drive growth.</p>
+          <ul>
+            <li>Predictive modeling</li>
+            <li>Classification algorithms</li>
+            <li>Recommendation systems</li>
+            <li>Natural language processing</li>
+            <li>Computer vision solutions</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Data Analytics & Visualization</h3>
+          <p>Transform your data into meaningful visualizations and actionable insights.</p>
+          <ul>
+            <li>Interactive dashboards</li>
+            <li>Business intelligence reports</li>
+            <li>Statistical analysis</li>
+            <li>A/B testing</li>
+            <li>Performance metrics tracking</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Data Engineering</h3>
+          <p>Build robust data infrastructure to collect, process, and store your valuable data.</p>
+          <ul>
+            <li>ETL pipeline development</li>
+            <li>Database design and optimization</li>
+            <li>Data cleaning and preparation</li>
+            <li>Big data processing</li>
+            <li>Cloud infrastructure setup</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>AI Strategy Consulting</h3>
+          <p>Strategic guidance on how to leverage AI and data science for your business.</p>
+          <ul>
+            <li>AI roadmap development</li>
+            <li>Use case identification</li>
+            <li>ROI assessment</li>
+            <li>Technology stack recommendations</li>
+            <li>Data strategy planning</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Deep Learning Solutions</h3>
+          <p>Advanced neural network architectures for complex pattern recognition tasks.</p>
+          <ul>
+            <li>Neural network design</li>
+            <li>Image and video analysis</li>
+            <li>Time series forecasting</li>
+            <li>Transfer learning</li>
+            <li>Model deployment and scaling</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Training & Knowledge Transfer</h3>
+          <p>Empower your team with the skills and knowledge to leverage data science.</p>
+          <ul>
+            <li>Customized workshops</li>
+            <li>One-on-one mentoring</li>
+            <li>Code reviews</li>
+            <li>Best practices implementation</li>
+            <li>Technical documentation</li>
+          </ul>
+        </div>
+
+        <!-- New Service Cards -->
+        <div class="service-card hidden">
+          <h3>Predictive Maintenance</h3>
+          <p>Implement predictive maintenance solutions to reduce equipment downtime.</p>
+          <ul>
+            <li>Sensor data analysis</li>
+            <li>Failure prediction models</li>
+            <li>Anomaly detection</li>
+            <li>Maintenance scheduling</li>
+          </ul>
+        </div>
+
+        <div class="service-card hidden">
+          <h3>Customer Segmentation</h3>
+          <p>Advanced clustering techniques for customer profiling and targeting.</p>
+          <ul>
+            <li>RFM analysis</li>
+            <li>Cluster analysis</li>
+            <li>Persona development</li>
+            <li>Targeting strategies</li>
+          </ul>
+        </div>
+
+        <div class="service-card hidden">
+          <h3>Fraud Detection</h3>
+          <p>Advanced anomaly detection systems for financial security.</p>
+          <ul>
+            <li>Transaction monitoring</li>
+            <li>Pattern recognition</li>
+            <li>Real-time detection</li>
+            <li>Risk scoring</li>
+          </ul>
+        </div>
+      </div>
+      <button class="show-more-btn" data-section="services">Show More Services</button>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <h3 class="section-title">Technical Skills</h3>
+      <div class="skills-grid">
+        <!-- Original Skill Cards -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="skill-title">Data Analysis &amp; Visualization</h3>
+          <p>Expert in extracting insights from complex data sets</p>
+          <ul class="skill-list">
+            <li>Python (Pandas, NumPy)</li>
+            <li>R Statistical Software</li>
+            <li>Tableau / Power BI</li>
+            <li>SQL / Database Design</li>
+            <li>Matplotlib / Seaborn</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h3 class="skill-title">Machine Learning</h3>
+          <p>Building predictive models and AI solutions</p>
+          <ul class="skill-list">
+            <li>Scikit-learn / XGBoost</li>
+            <li>TensorFlow / PyTorch</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision</li>
+            <li>Time Series Analysis</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h3 class="skill-title">Big Data Technologies</h3>
+          <p>Processing and analyzing large-scale data</p>
+          <ul class="skill-list">
+            <li>Spark / Hadoop</li>
+            <li>AWS / Azure / GCP</li>
+            <li>Docker / Kubernetes</li>
+            <li>ETL Pipeline Design</li>
+            <li>Airflow / Luigi</li>
+          </ul>
+        </div>
+
+        <!-- New Skill Cards -->
+        <div class="skill-card hidden">
+          <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+          <h3 class="skill-title">Cloud Computing</h3>
+          <p>Deploying and managing cloud-based data solutions</p>
+          <ul class="skill-list">
+            <li>AWS SageMaker</li>
+            <li>Azure ML Studio</li>
+            <li>Google Cloud AI</li>
+            <li>Serverless Architecture</li>
+          </ul>
+        </div>
+
+        <div class="skill-card hidden">
+          <div class="skill-icon"><i class="fas fa-comments"></i></div>
+          <h3 class="skill-title">NLP Solutions</h3>
+          <p>Natural Language Processing implementations</p>
+          <ul class="skill-list">
+            <li>Sentiment Analysis</li>
+            <li>Chatbot Development</li>
+            <li>Text Classification</li>
+            <li>Transformer Models</li>
+          </ul>
+        </div>
+
+        <div class="skill-card hidden">
+          <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="skill-title">Data Governance</h3>
+          <p>Ensuring data quality and compliance</p>
+          <ul class="skill-list">
+            <li>GDPR Compliance</li>
+            <li>Data Cataloging</li>
+            <li>Quality Frameworks</li>
+            <li>Metadata Management</li>
+          </ul>
+        </div>
+      </div>
+      <button class="show-more-btn" data-section="skills">Show More Skills</button>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Expertise</h2>
+      <p class="section-subtitle">Mastering cutting-edge technologies to deliver data-driven solutions</p>
+      
+      <div class="skills-grid">
+        <!-- Data Analysis -->
+        <div class="skill-card">
+          <i class="fas fa-chart-line skill-icon"></i>
+          <h3 class="skill-title">Data Analysis & Visualization</h3>
+          <p class="skill-description">Transforming raw data into actionable insights through advanced analytics</p>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Python (Pandas)</span>
+              <span>95%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Tableau/Power BI</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>SQL</span>
+              <span>92%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 92%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning -->
+        <div class="skill-card">
+          <i class="fas fa-brain skill-icon"></i>
+          <h3 class="skill-title">Machine Learning</h3>
+          <p class="skill-description">Building intelligent systems that learn and adapt to complex patterns</p>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>TensorFlow/PyTorch</span>
+              <span>88%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Scikit-learn</span>
+              <span>93%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 93%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Computer Vision</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Data -->
+        <div class="skill-card">
+          <i class="fas fa-database skill-icon"></i>
+          <h3 class="skill-title">Big Data Technologies</h3>
+          <p class="skill-description">Handling massive datasets with distributed computing solutions</p>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Spark/Hadoop</span>
+              <span>87%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 87%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>AWS/GCP</span>
+              <span>91%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 91%"></div>
+            </div>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-name">
+              <span>Kubernetes</span>
+              <span>83%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 83%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="show-more-btn" data-section="skills">Show More Skills</button>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">A selection of my recent data science work</p>
+      
+      <div class="projects-container">
+        <!-- Original Projects -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Customer Churn Prediction">
+          </div>
+          <div class="project-content">
+            <h3>Customer Churn Prediction</h3>
+            <p>Developed machine learning model predicting customer churn with 92% accuracy for telecom company.</p>
+            <div class="project-tags">
+              <span class="project-tag">XGBoost</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">SHAP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Sales Forecasting">
+          </div>
+          <div class="project-content">
+            <h3>Retail Sales Forecasting</h3>
+            <p>Time series analysis and LSTM model for predicting retail sales with 88% accuracy.</p>
+            <div class="project-tags">
+              <span class="project-tag">TensorFlow</span>
+              <span class="project-tag">ARIMA</span>
+              <span class="project-tag">Tableau</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Medical Diagnosis">
+          </div>
+          <div class="project-content">
+            <h3>Medical Image Classification</h3>
+            <p>CNN model for automated diagnosis of lung diseases from X-ray images.</p>
+            <div class="project-tags">
+              <span class="project-tag">Deep Learning</span>
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">DICOM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Projects -->
+        <div class="project-card hidden">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Fraud Detection">
+          </div>
+          <div class="project-content">
+            <h3>Financial Fraud Detection</h3>
+            <p>Anomaly detection system reducing fraudulent transactions by 62%.</p>
+            <div class="project-tags">
+              <span class="project-tag">Isolation Forest</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card hidden">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Recommendation System">
+          </div>
+          <div class="project-content">
+            <h3>E-commerce Recommendations</h3>
+            <p>Collaborative filtering system increasing conversions by 28%.</p>
+            <div class="project-tags">
+              <span class="project-tag">Neural Networks</span>
+              <span class="project-tag">PySpark</span>
+              <span class="project-tag">Real-time</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card hidden">
+          <div class="project-image">
+            <img src="/api/placeholder/400/300" alt="Supply Chain">
+          </div>
+          <div class="project-content">
+            <h3>Supply Chain Optimization</h3>
+            <p>ML model reducing logistics costs by 19% through route optimization.</p>
+            <div class="project-tags">
+              <span class="project-tag">Optimization</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Gurobi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="show-more-btn" data-section="projects">Show More Projects</button>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Testimonials</h2>
+      <p class="section-subtitle">What industry professionals say about my work</p>
+      
+      <div class="testimonials-container">
+        <!-- Original Testimonials -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            "The customer churn model helped us reduce attrition by 35% in Q3. Exceptional work combining technical expertise with business understanding."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="/api/placeholder/50/50" alt="Sarah Johnson">
+            </div>
+            <div class="testimonial-info">
+              <h4>Sarah Johnson</h4>
+              <p>VP Operations, Telco Solutions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            "Transformed our raw IoT data into actionable maintenance predictions. The model has saved us over $500k in downtime costs."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="/api/placeholder/50/50" alt="Michael Chen">
+            </div>
+            <div class="testimonial-info">
+              <h4>Michael Chen</h4>
+              <p>CTO, Industrial Analytics Ltd</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Testimonials -->
+        <div class="testimonial-card hidden">
+          <div class="testimonial-content">
+            "The supply chain optimization model reduced our logistics costs by 22% while maintaining delivery times."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="/api/placeholder/50/50" alt="Emma Wilson">
+            </div>
+            <div class="testimonial-info">
+              <h4>Emma Wilson</h4>
+              <p>Logistics Director, Global Corp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card hidden">
+          <div class="testimonial-content">
+            "Our customer satisfaction scores increased by 40% after implementing the recommendation system."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="/api/placeholder/50/50" alt="David Smith">
+            </div>
+            <div class="testimonial-info">
+              <h4>David Smith</h4>
+              <p>CEO, E-Commerce Platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="show-more-btn" data-section="testimonials">Show More Testimonials</button>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2 class="section-title">Engagement Models</h2>
+      <p class="section-subtitle">Flexible pricing options for different needs</p>
+      
+      <div class="pricing-container">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Exploratory Analysis</h3>
+            <div class="pricing-price">$1,499</div>
+            <p class="pricing-period">per project</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Data Cleaning & Preparation</li>
+            <li>Exploratory Data Analysis</li>
+            <li>Basic Visualizations</li>
+            <li>1 Revision Cycle</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Start Project</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Full Project</h3>
+            <div class="pricing-price">$4,999</div>
+            <p class="pricing-period">per project</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Custom ML Model Development</li>
+            <li>Feature Engineering</li>
+            <li>Model Deployment</li>
+            <li>3 Revision Cycles</li>
+            <li>1 Month Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Choose Plan</a>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Enterprise</h3>
+            <div class="pricing-price">Custom</div>
+            <p class="pricing-period">tailored solution</p>
+          </div>
+          <ul class="pricing-features">
+            <li>End-to-End Data Solutions</li>
+            <li>Dedicated Resources</li>
+            <li>Continuous Integration</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <ul class="contact-details">
+            <li>
+              <div class="contact-icon">📍</div>
+              <span>DataSciPro HQ<br>New York, NY 10001</span>
+            </li>
+            <li>
+              <div class="contact-icon">✉️</div>
+              <span>contact@datascipro.com</span>
+            </li>
+            <li>
+              <div class="contact-icon">📞</div>
+              <span>+1 (555) 123-4567</span>
+            </li>
+          </ul>
+          <div class="social-links">
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">Kaggle</a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3>Send Message</h3>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Describe your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    // Previous JavaScript code remains unchanged
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = {
+        services: { visible: 6, increment: 3 },
+        skills: { visible: 3, increment: 3 },
+        projects: { visible: 3, increment: 3 },
+        testimonials: { visible: 2, increment: 2 }
+      };
+
+      Object.keys(sections).forEach(section => {
+        const config = sections[section];
+        const cards = document.querySelectorAll(`#${section} .${section === 'skills' ? 'skill-card' : 
+          section === 'projects' ? 'project-card' : 
+          section === 'testimonials' ? 'testimonial-card' : 'service-card'}`);
+        
+        const btn = document.querySelector(`[data-section="${section}"]`);
+
+        // Initially hide excess items
+        cards.forEach((card, index) => {
+          if (index >= config.visible) card.classList.add('hidden');
+        });
+
+        // Show more functionality
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const hiddenCards = Array.from(cards).filter(card => card.classList.contains('hidden'));
+            hiddenCards.slice(0, config.increment).forEach(card => card.classList.remove('hidden'));
+            
+            // Hide button if no more items
+            if (hiddenCards.length <= config.increment) btn.classList.add('hidden');
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">
+          DataSciPro<span class="logo-dot"></span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p class="copyright">© 2023 DataSciPro. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
